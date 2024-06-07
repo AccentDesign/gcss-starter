@@ -156,6 +156,10 @@ main {
         background-color: rgba(23, 23, 23, 1.00);
         color: rgba(255, 255, 255, 1.00);
     }
+
+    .button-primary:hover {
+        background-color: rgba(23, 23, 23, 0.90);
+    }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -167,6 +171,10 @@ main {
     .button-primary {
         background-color: rgba(255, 255, 255, 1.00);
         color: rgba(23, 23, 23, 1.00);
+    }
+
+    .button-primary:hover {
+        background-color: rgba(255, 255, 255, 0.90);
     }
 }
 

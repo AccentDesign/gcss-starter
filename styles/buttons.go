@@ -39,5 +39,11 @@ func (t *Theme) Buttons() Styles {
 				Color:           t.PrimaryForeground,
 			},
 		},
+		{
+			Selector: ".button-primary:hover",
+			Props: gcss.Props{
+				BackgroundColor: t.Primary.Alpha(230),
+			},
+		},
 	}
 }
