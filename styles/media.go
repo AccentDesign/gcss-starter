@@ -11,12 +11,17 @@ type (
 		MediaType
 		Query string
 	}
-	MediaType string
+	MediaType int
 )
 
 const (
-	Mobile  MediaType = "mobile"
-	Desktop MediaType = "desktop"
+	Mobile MediaType = iota
+	Desktop
+)
+
+var (
+	mobileMedia  = &Media{MediaType: Mobile, Query: "@media (max-width: 768px)"}
+	desktopMedia = &Media{MediaType: Desktop, Query: "@media (min-width: 769px)"}
 )
 
 // CSS Writes the CSS for the media to the writer.
