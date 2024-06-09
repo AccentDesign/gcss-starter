@@ -1,6 +1,8 @@
-# GCSS Example
+<img src="https://github.com/AccentDesign/gcss/raw/main/banner.jpg" alt="banner" style="width: 100%; height: auto;">
 
-This example hase the following:
+# gcss starter
+
+Including:
 
 * A `StyleSheet` that has has global resets, base styles, media queries for devices, themes and a `Mutex` that generates the CSS only once to avoid multiple builds.
 * The `main` element has base styles and media queries for different screen sizes.
@@ -88,16 +90,7 @@ func (t *Theme) Form() Styles {
     padding: 0;
 }
 
-html, :host {
-    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    line-height: 1.5;
-    -webkit-text-size-adjust: 100%;
-    tab-size: 4;
-}
-
-body {
-    line-height: inherit;
-}
+/* ... other resets ... */
 
 /* base */
 body {
