@@ -29,9 +29,9 @@ func (ss *StyleSheet) Resets() Styles {
 				LineHeight: props.UnitRaw(1.5),
 			},
 			CustomProps: []gcss.CustomProp{
-				{"-webkit-tap-highlight-color", "transparent"},
-				{"-webkit-text-size-adjust", "100%"},
-				{"tab-size", "4"},
+				{Attr: "-webkit-tap-highlight-color", Value: "transparent"},
+				{Attr: "-webkit-text-size-adjust", Value: "100%"},
+				{Attr: "tab-size", Value: "4"},
 			},
 		},
 		{
@@ -47,7 +47,7 @@ func (ss *StyleSheet) Resets() Styles {
 				Height: variables.Size0,
 			},
 			CustomProps: []gcss.CustomProp{
-				{"border-top-width", "1px"},
+				{Attr: "border-top-width", Value: "1px"},
 			},
 		},
 		{
@@ -129,7 +129,7 @@ func (ss *StyleSheet) Resets() Styles {
 				FontSize:        props.UnitInherit(),
 			},
 			CustomProps: []gcss.CustomProp{
-				{"letter-spacing", "inherit"},
+				{Attr: "letter-spacing", Value: "inherit"},
 			},
 		},
 		{
@@ -150,13 +150,13 @@ func (ss *StyleSheet) Resets() Styles {
 		{
 			Selector: ":-moz-focusring",
 			CustomProps: []gcss.CustomProp{
-				{"outline", "auto"},
+				{Attr: "outline", Value: "auto"},
 			},
 		},
 		{
 			Selector: ":-moz-ui-invalid",
 			CustomProps: []gcss.CustomProp{
-				{"box-shadow", "none"},
+				{Attr: "box-shadow", Value: "none"},
 			},
 		},
 		{
@@ -174,7 +174,7 @@ func (ss *StyleSheet) Resets() Styles {
 		{
 			Selector: "::-webkit-search-decoration",
 			CustomProps: []gcss.CustomProp{
-				{"-webkit-appearance", "none"},
+				{Attr: "-webkit-appearance", Value: "none"},
 			},
 		},
 		{
@@ -193,7 +193,7 @@ func (ss *StyleSheet) Resets() Styles {
 		{
 			Selector: "textarea",
 			CustomProps: []gcss.CustomProp{
-				{"resize", "vertical"},
+				{Attr: "resize", Value: "vertical"},
 			},
 		},
 		{
