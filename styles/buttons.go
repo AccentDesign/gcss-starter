@@ -6,7 +6,7 @@ import (
 	"github.com/AccentDesign/gcss/variables"
 )
 
-// Buttons returns the styles for buttons for the base stylesheet.
+// Buttons styles for the stylesheet.
 func (ss *StyleSheet) Buttons() Styles {
 	return Styles{
 		MergeStyles(
@@ -32,7 +32,7 @@ func (ss *StyleSheet) Buttons() Styles {
 	}
 }
 
-// Buttons returns the styles for buttons for the theme.
+// Buttons styles for the theme.
 func (t *Theme) Buttons() Styles {
 	return Styles{
 		{

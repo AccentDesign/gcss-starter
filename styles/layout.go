@@ -6,7 +6,7 @@ import (
 	"github.com/AccentDesign/gcss/variables"
 )
 
-// Layout returns the styles for the layout for the base stylesheet.
+// Layout styles for the stylesheet.
 func (ss *StyleSheet) Layout() Styles {
 	return Styles{
 		{
@@ -24,7 +24,7 @@ func (ss *StyleSheet) Layout() Styles {
 	}
 }
 
-// Layout returns the styles for the layout for the media.
+// Layout styles for the media.
 func (m *Media) Layout() Styles {
 	return Styles{
 		{
@@ -37,7 +37,7 @@ func (m *Media) Layout() Styles {
 	}
 }
 
-// Layout returns the styles for the layout for the theme.
+// Layout styles for the theme.
 func (t *Theme) Layout() Styles {
 	return Styles{
 		{

@@ -6,7 +6,7 @@ import (
 	"github.com/AccentDesign/gcss/variables"
 )
 
-// Resets returns the styles for resets for the base stylesheet.
+// Resets styles for the stylesheet.
 // From: https://github.com/tailwindlabs/tailwindcss/blob/4aefd26f44cbb5ede9bc02c00085e97550d0953e/packages/tailwindcss/preflight.css
 func (ss *StyleSheet) Resets() Styles {
 	return Styles{

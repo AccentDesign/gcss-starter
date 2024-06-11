@@ -40,17 +40,17 @@ For an example of adding form styles.
 1. Create a new `form.go` file. and add the following code (or add what you need):
 
 ```go
-// Form returns the styles for buttons for the base stylesheet.
+// Form styles for the stylesheet.
 func (ss *StyleSheet) Form() Styles {
 	return Styles{}
 }
 
-// Form returns the styles for the layout for the media.
+// Form styles for the media.
 func (m *Media) Form() Styles {
 	return Styles{}
 }
 
-// Form returns the styles for the layout for the theme.
+// Form styles for the theme.
 func (t *Theme) Form() Styles {
 	return Styles{}
 }
