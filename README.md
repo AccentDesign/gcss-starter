@@ -2,11 +2,16 @@
 
 # gcss starter
 
-Including:
+Includes the bare-bones basics to generate a working stylesheet with:
 
-* A `StyleSheet` that has has global resets, base styles, media queries for devices, themes and a `Mutex` that generates the CSS only once to avoid multiple builds.
-* The `main` element has base styles and media queries for different screen sizes.
-* Both `body` and `buttons` have base styles as well as themed for the likes of background and foreground variations.
+- [x] CSS resets.
+- [x] Media queries for screen layout.
+- [x] Theme for light and dark mode.
+- [x] Button styles.
+- [x] Useful helper functions to merge styles and props a bit like css mixins, see [buttons.go](./styles/buttons.go) and [utility.go](./styles/utility.go) for an example.
+- [x] Hot reload with [air](https://github.com/cosmtrek/air).
+- [x] Example HTML and CSS.
+- [x] Mutex to cache the stylesheet to prevent multiple builds.
 
 ## Installation
 
@@ -60,18 +65,19 @@ func (t *Theme) Form() Styles {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta content="Example starting point written in gcss." name="description" />
-    <title>Theme</title>
-    <link rel="stylesheet" href="/stylesheet.css">
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="Example starting point written in gcss." name="description"/>
+  <title>Theme</title>
+  <link rel="stylesheet" href="/stylesheet.css">
 </head>
 <body>
 <main>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <div>
-        <button class="button button-primary">Click me</button>
-    </div>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <div>
+    <button class="button button-primary">Click me</button>
+    <button class="button button-outline">Click me</button>
+  </div>
 </main>
 </body>
 </html>
@@ -84,84 +90,100 @@ func (t *Theme) Form() Styles {
 
 /* resets */
 *, ::after, ::before, ::backdrop, ::file-selector-button {
-    border: 0 solid;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  border: 0 solid;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /* ... other resets ... */
 
 /* base */
 body {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
 main {
-    display: grid;
+  display: grid;
 }
 
 .button {
-    align-items: center;
-    border-radius: 0.375rem;
-    display: inline-flex;
-    font-size: 0.875rem;
-    font-weight: 500;
-    height: 2.500rem;
-    justify-content: center;
-    line-height: 1.250rem;
-    padding-bottom: 0.500rem;
-    padding-left: 1.000rem;
-    padding-right: 1.000rem;
-    padding-top: 0.500rem;
+  align-items: center;
+  border-radius: 0.375rem;
+  display: inline-flex;
+  font-size: 0.875rem;
+  font-weight: 500;
+  height: 2.500rem;
+  justify-content: center;
+  line-height: 1.250rem;
+  padding-bottom: 0.500rem;
+  padding-left: 1.000rem;
+  padding-right: 1.000rem;
+  padding-top: 0.500rem;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
-/* media */
 @media (max-width: 768px) {
-    main {
-        padding: 2.000rem;
-        row-gap: 1.500rem;
-    }
+  main {
+    padding: 2.000rem;
+    row-gap: 1.500rem;
+  }
 }
 
 @media (min-width: 769px) {
-    main {
-        padding: 4.000rem;
-        row-gap: 2.000rem;
-    }
+  main {
+    padding: 4.000rem;
+    row-gap: 2.000rem;
+  }
 }
 
-/* themes */
 @media (prefers-color-scheme: light) {
-    body {
-        background-color: rgba(255, 255, 255, 1.00);
-        color: rgba(23, 23, 23, 1.00);
-    }
+  body {
+    background-color: rgba(255, 255, 255, 1.00);
+    color: rgba(23, 23, 23, 1.00);
+  }
 
-    .button-primary {
-        background-color: rgba(23, 23, 23, 1.00);
-        color: rgba(255, 255, 255, 1.00);
-    }
+  .button-primary {
+    background-color: rgba(23, 23, 23, 1.00);
+    color: rgba(255, 255, 255, 1.00);
+  }
 
-    .button-primary:hover {
-        background-color: rgba(23, 23, 23, 0.90);
-    }
+  .button-primary:hover {
+    background-color: rgba(23, 23, 23, 0.90);
+  }
+
+  .button-outline {
+    border: 1px solid rgba(23, 23, 23, 1.00);
+  }
+
+  .button-outline:hover {
+    border-color: rgba(23, 23, 23, 0.80);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
-    body {
-        background-color: rgba(23, 23, 23, 1.00);
-        color: rgba(245, 245, 245, 1.00);
-    }
+  body {
+    background-color: rgba(23, 23, 23, 1.00);
+    color: rgba(245, 245, 245, 1.00);
+  }
 
-    .button-primary {
-        background-color: rgba(255, 255, 255, 1.00);
-        color: rgba(23, 23, 23, 1.00);
-    }
+  .button-primary {
+    background-color: rgba(255, 255, 255, 1.00);
+    color: rgba(23, 23, 23, 1.00);
+  }
 
-    .button-primary:hover {
-        background-color: rgba(255, 255, 255, 0.90);
-    }
+  .button-primary:hover {
+    background-color: rgba(255, 255, 255, 0.90);
+  }
+
+  .button-outline {
+    border: 1px solid rgba(255, 255, 255, 1.00);
+  }
+
+  .button-outline:hover {
+    border-color: rgba(255, 255, 255, 0.80);
+  }
 }
-
 ```

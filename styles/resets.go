@@ -39,6 +39,10 @@ func (ss *StyleSheet) Resets() Styles {
 			Props: gcss.Props{
 				LineHeight: props.UnitInherit(),
 			},
+			CustomProps: []gcss.CustomProp{
+				{Attr: "-webkit-font-smoothing", Value: "antialiased"},
+				{Attr: "-moz-osx-font-smoothing", Value: "grayscale"},
+			},
 		},
 		{
 			Selector: "hr",
